@@ -1,1 +1,2 @@
 DATAPATH = "Data"
+RESOURCESPATH = "Resources"
