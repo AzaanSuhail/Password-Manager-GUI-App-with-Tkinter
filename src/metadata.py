@@ -5,3 +5,4 @@ RESOURCESPATH = "Resources"
 # Tkinter Entries Meta Data
 WEBSITE_PLACEHOLDER = "ww.abc.com"
 EMAIL_PLACEHOLDER = "user@email.com"
+PASSWORD_PLACEHOLDER = "welcome123"

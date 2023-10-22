@@ -16,6 +16,12 @@ def clear_entries(*entries):
     for entry in entries:
         entry.delete(0, tk.END)
 
+def selecttext_on_focus(entry):
+    def select_text(event):
+        entry.select_range(0, 'end')
+    
+    entry.bind("<FocusIn>", select_text)
+
 def restore_placeholder(entry, placeholder):
     entry.insert(0, placeholder)
 

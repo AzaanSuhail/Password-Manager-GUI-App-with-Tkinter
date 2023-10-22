@@ -1,3 +1,4 @@
+from . import commands
 from . import metadata
 from . import eventhandler
 
@@ -32,11 +33,17 @@ def main():
     email_entry.insert(0, metadata.EMAIL_PLACEHOLDER)
     password_entry = tk.Entry(width=21)
     password_entry.grid(row=3, column=1)
+    password_entry.insert(0, metadata.PASSWORD_PLACEHOLDER)
 
-    # Buttons
+    #Buttons
     generate_password_button = tk.Button(text="Generate Password", command=lambda: eventhandler.handle_generate_event(password_entry))
     generate_password_button.grid(row=3, column=2)
     add_button = tk.Button(text="Add", width=36, command=lambda: eventhandler.handle_add_event(website_entry, email_entry, password_entry))
     add_button.grid(row=4, column=1, columnspan=2)
+
+    #EventListener
+    commands.selecttext_on_focus(website_entry)
+    commands.selecttext_on_focus(email_entry)
+    commands.selecttext_on_focus(password_entry)
 
     window.mainloop()

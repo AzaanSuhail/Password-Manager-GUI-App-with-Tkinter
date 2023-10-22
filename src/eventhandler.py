@@ -15,6 +15,7 @@ def handle_add_event(website_entry, email_entry, password_entry):
     commands.clear_entries(website_entry, email_entry, password_entry)
     commands.restore_placeholder(website_entry, metadata.WEBSITE_PLACEHOLDER)
     commands.restore_placeholder(email_entry, metadata.EMAIL_PLACEHOLDER)
+    commands.restore_placeholder(password_entry, metadata.PASSWORD_PLACEHOLDER)
 
 def handle_generate_event(password_entry):
     password = commands.generate_password()
