@@ -1,4 +1,5 @@
-import metadata
+from . import metadata
+from . import eventhandler
 
 import os
 import tkinter as tk
@@ -32,9 +33,9 @@ def main():
     password_entry.grid(row=3, column=1)
 
     # Buttons
-    generate_password_button = tk.Button(text="Generate Password", command=generate_password)
+    generate_password_button = tk.Button(text="Generate Password", command=lambda: eventhandler.handle_generate_event(password_entry))
     generate_password_button.grid(row=3, column=2)
-    add_button = tk.Button(text="Add", width=36, command=save)
+    add_button = tk.Button(text="Add", width=36, command=lambda: eventhandler.handle_add_event(website_entry, email_entry, password_entry))
     add_button.grid(row=4, column=1, columnspan=2)
 
     window.mainloop()
