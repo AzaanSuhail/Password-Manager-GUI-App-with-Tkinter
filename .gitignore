@@ -1,0 +1,9 @@
+# project specific files and dirs
+Data/
+
+# virtual enviroments
+venv/
+env/
+
+# python specfiic compile files
+__pycache__/
