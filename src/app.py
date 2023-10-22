@@ -27,13 +27,10 @@ def main():
     website_entry = tk.Entry(width=35)
     website_entry.grid(row=1, column=1, columnspan=2)
     website_entry.focus()
-    website_entry.insert(0, metadata.WEBSITE_PLACEHOLDER)
     email_entry = tk.Entry(width=35)
     email_entry.grid(row=2, column=1, columnspan=2)
-    email_entry.insert(0, metadata.EMAIL_PLACEHOLDER)
     password_entry = tk.Entry(width=21)
     password_entry.grid(row=3, column=1)
-    password_entry.insert(0, metadata.PASSWORD_PLACEHOLDER)
 
     #Buttons
     generate_password_button = tk.Button(text="Generate Password", command=lambda: eventhandler.handle_generate_event(password_entry))
@@ -42,8 +39,8 @@ def main():
     add_button.grid(row=4, column=1, columnspan=2)
 
     #EventListener
-    commands.selecttext_on_focus(website_entry)
-    commands.selecttext_on_focus(email_entry)
-    commands.selecttext_on_focus(password_entry)
+    commands.create_placeholder(website_entry, metadata.WEBSITE_PLACEHOLDER)
+    commands.create_placeholder(email_entry, metadata.EMAIL_PLACEHOLDER)
+    commands.create_placeholder(password_entry, metadata.PASSWORD_PLACEHOLDER)
 
     window.mainloop()

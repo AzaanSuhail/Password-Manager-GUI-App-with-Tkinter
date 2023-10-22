@@ -16,11 +16,27 @@ def clear_entries(*entries):
     for entry in entries:
         entry.delete(0, tk.END)
 
-def selecttext_on_focus(entry):
-    def select_text(event):
-        entry.select_range(0, 'end')
+def create_placeholder(entry, placeholder):
+    def selecttext_on_focus():
+        def select_text(event):
+            if entry.get() == placeholder:
+                entry.select_range(0, 'end')
+        
+        entry.bind("<FocusIn>", select_text)
+
+    def placeholder_color():
+        def changecolor(event):
+            if entry.get() == placeholder:
+                entry.config(fg="gray")
+            else:
+                entry.config(fg="black")
+                
+        entry.bind("<KeyRelease>", changecolor)
     
-    entry.bind("<FocusIn>", select_text)
+    selecttext_on_focus()
+    placeholder_color()
+    entry.insert(0, placeholder)
+    entry.config(fg="gray")
 
 def restore_placeholder(entry, placeholder):
     entry.insert(0, placeholder)
