@@ -1,5 +1,6 @@
 from . import commands
 from . import datahandler
+from . import metadata
 
 def handle_add_event(website_entry, email_entry, password_entry):
     website = website_entry.get()
@@ -12,6 +13,8 @@ def handle_add_event(website_entry, email_entry, password_entry):
             print("successfuly inserted to data.txt")
     
     commands.clear_entries(website_entry, email_entry, password_entry)
+    commands.restore_placeholder(website_entry, metadata.WEBSITE_PLACEHOLDER)
+    commands.restore_placeholder(email_entry, metadata.EMAIL_PLACEHOLDER)
 
 def handle_generate_event(password_entry):
     password = commands.generate_password()

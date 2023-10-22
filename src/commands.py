@@ -12,10 +12,12 @@ def is_valid(website, email, password):
         return False
     return True
 
-def clear_entries(website_entry, email_entry, password_entry):
-    website_entry.delete(0, tk.END)
-    email_entry.delete(0, tk.END)
-    password_entry.delete(0, tk.END)
+def clear_entries(*entries):
+    for entry in entries:
+        entry.delete(0, tk.END)
+
+def restore_placeholder(entry, placeholder):
+    entry.insert(0, placeholder)
 
 def generate_password():
     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
