@@ -1,6 +1,7 @@
 # App Path Meta Data
 DATAPATH: str = "Data"
 RESOURCESPATH: str = "Resources"
+ICONPATH = "Resources/icon.ico"
 
 # Tkinter Entries Meta Data
 WEBSITE_PLACEHOLDER: str = "ww.abc.com"

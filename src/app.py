@@ -12,7 +12,7 @@ def read_passwords():
     
     State.is_reading_password = True
     read_window = tk.Toplevel()
-    read_window.title("Read Passwords")
+    read_window.title("Password Manager: Read Passwords")
     read_window.config(padx=50, pady=50)
 
     # Labels
@@ -40,6 +40,7 @@ def main():
     window = tk.Tk()
     window.title("Password Manager")
     window.config(padx=50, pady=50)
+    window.iconbitmap(default=metadata.ICONPATH)
 
     canvas = tk.Canvas(height=200, width=200)
     logo_img = tk.PhotoImage(file=os.path.join(metadata.RESOURCESPATH, "logo.png"))
