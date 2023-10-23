@@ -1,3 +1,5 @@
+from . import metadata
+
 import pyperclip
 
 from random import choice
@@ -7,7 +9,11 @@ import tkinter as tk
 from tkinter import messagebox
 
 def is_valid(website, email, password):
-    if len(website) == 0 or len(email) == 0 or len(password) == 0:
+    condition1 = (website == metadata.WEBSITE_PLACEHOLDER) or (len(website) == 0)
+    condition2 = (email == metadata.EMAIL_PLACEHOLDER) or   (len(email) == 0)
+    condition3 = (password == metadata.PASSWORD_PLACEHOLDER) or (len(password) == 0)
+    
+    if condition1 or condition2 or condition3:
         messagebox.showinfo(title="Oops", message="Please make sure you haven't left any fields empty.")
         return False
     return True
@@ -40,6 +46,7 @@ def create_placeholder(entry, placeholder):
 
 def restore_placeholder(entry, placeholder):
     entry.insert(0, placeholder)
+    entry.config(fg="gray")
 
 def generate_password():
     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
