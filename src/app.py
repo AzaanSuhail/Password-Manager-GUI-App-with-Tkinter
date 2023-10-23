@@ -8,6 +8,7 @@ import tkinter as tk
 def read_passwords():
     read_window = tk.Toplevel()
     read_window.title("Read Passwords")
+    read_window.config(padx=50, pady=50)
     
     #Labels
     website_label = tk.Label(master=read_window, text="Website:")
