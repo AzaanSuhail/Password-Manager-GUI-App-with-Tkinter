@@ -63,6 +63,8 @@ def generate_password():
     return "".join(password_list)
 
 def add_password_to_password_entry(password_entry, password):
+    password_entry.delete(0, tk.END)
+    password_entry.config(fg="black")
     password_entry.insert(0, password)
 
 def copy_to_clipboard(password):
