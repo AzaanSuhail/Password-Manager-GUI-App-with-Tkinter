@@ -2,9 +2,8 @@ from . import metadata
 
 import pyperclip
 
-from random import choice
-from random import randint
-from random import shuffle
+import secrets
+import string
 import tkinter as tk
 from tkinter import messagebox
 
@@ -48,19 +47,10 @@ def restore_placeholder(entry, placeholder):
     entry.insert(0, placeholder)
     entry.config(fg="gray")
 
-def generate_password():
-    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-    symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
-
-    password_letters = [choice(letters) for _ in range(randint(8, 10))]
-    password_symbols = [choice(symbols) for _ in range(randint(2, 4))]
-    password_numbers = [choice(numbers) for _ in range(randint(2, 4))]
-
-    password_list = password_letters + password_symbols + password_numbers
-    shuffle(password_list)
-
-    return "".join(password_list)
+def generate_password(length=12):
+    alphabet = string.ascii_letters + string.digits + string.punctuation
+    secure_password = ''.join(secrets.choice(alphabet) for _ in range(length))
+    return secure_password
 
 def add_password_to_password_entry(password_entry, password):
     password_entry.delete(0, tk.END)
