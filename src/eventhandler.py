@@ -21,3 +21,10 @@ def handle_generate_event(password_entry):
     password = commands.generate_password(metadata.PASSWORD_GENERATE_LENGTH)
     commands.add_password_to_password_entry(password_entry, password)
     commands.copy_to_clipboard(password)
+
+def handle_read_event(website_entry, email_entry, password_label):
+    data = datahandler.load()
+    website = website_entry.get()
+    email = email_entry.get()
+    password = commands.getpassword(data, website, email)
+    commands.change_text_label(password_label, password)

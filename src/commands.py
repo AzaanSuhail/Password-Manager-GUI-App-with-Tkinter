@@ -59,3 +59,12 @@ def add_password_to_password_entry(password_entry, password):
 
 def copy_to_clipboard(password):
     pyperclip.copy(password)
+
+def getpassword(datas, website, email):
+    for data in datas:
+        if data[0] == website and data[1] == email:
+            return data[2]
+    return "Password Not Found!"
+
+def change_text_label(label, text):
+    label.config(text=text)

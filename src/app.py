@@ -5,6 +5,30 @@ from . import eventhandler
 import os
 import tkinter as tk
 
+def read_passwords():
+    read_window = tk.Toplevel()
+    read_window.title("Read Passwords")
+    
+    #Labels
+    website_label = tk.Label(master=read_window, text="Website:")
+    website_label.grid(row=1, column=0)
+    email_label = tk.Label(master=read_window, text="Email/Username:")
+    email_label.grid(row=2, column=0)
+
+    #Entries
+    website_entry = tk.Entry(master=read_window, width=35)
+    website_entry.grid(row=1, column=1, columnspan=2)
+    website_entry.focus()
+    email_entry = tk.Entry(master=read_window, width=35)
+    email_entry.grid(row=2, column=1, columnspan=2)
+
+    password_label = tk.Label(master=read_window, text="Password")
+    password_label.grid(row=4, column=0, columnspan=3)
+    
+    #ReadPasswordButton
+    submit_button = tk.Button(master=read_window, text="Read Password", command=lambda: eventhandler.handle_read_event(website_entry, email_entry, password_label))
+    submit_button.grid(row=3, column=0, columnspan=3)
+
 def main():
     window = tk.Tk()
     window.title("Password Manager")
@@ -37,6 +61,10 @@ def main():
     generate_password_button.grid(row=3, column=2)
     submit_button = tk.Button(text="Submit", width=36, command=lambda: eventhandler.handle_submit_event(website_entry, email_entry, password_entry))
     submit_button.grid(row=4, column=1, columnspan=2)
+
+    #ReadPasswordButton
+    read_password_button = tk.Button(text="Read Passwords", command=read_passwords)
+    read_password_button.grid(row=5, column=0, columnspan=3)
 
     #EventListener
     commands.create_placeholder(website_entry, metadata.WEBSITE_PLACEHOLDER)

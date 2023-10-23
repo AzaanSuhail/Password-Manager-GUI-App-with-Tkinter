@@ -4,7 +4,7 @@ import os
 
 def save(website, email, password):
     with open(os.path.join(metadata.DATAPATH, "data.txt"), "a") as data_file:
-        data = metadata.DATASEPERATOR.join([website, email, password])
+        data = metadata.DATASEPERATOR.join([website.strip(), email.strip(), password.strip()])
         data_file.write(data + "\n")
         return True
 
