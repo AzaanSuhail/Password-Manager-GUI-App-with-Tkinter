@@ -18,6 +18,6 @@ def handle_submit_event(website_entry, email_entry, password_entry):
     commands.restore_placeholder(password_entry, metadata.PASSWORD_PLACEHOLDER)
 
 def handle_generate_event(password_entry):
-    password = commands.generate_password()
+    password = commands.generate_password(metadata.PASSWORD_GENERATE_LENGTH)
     commands.add_password_to_password_entry(password_entry, password)
     commands.copy_to_clipboard(password)
