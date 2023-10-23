@@ -2,8 +2,8 @@ from . import metadata
 
 import pyperclip
 
-import secrets
 import string
+import secrets
 import tkinter as tk
 from tkinter import messagebox
 

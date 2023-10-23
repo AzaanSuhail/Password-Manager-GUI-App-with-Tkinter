@@ -1,3 +1,5 @@
+from typing import Tuple
+
 # App Path Meta Data
 DATAPATH: str = "Data"
 RESOURCESPATH: str = "Resources"
@@ -15,4 +17,4 @@ DATASEPERATOR: str =  " | "  # if we change this at any point in project, all da
 PASSWORD_GENERATE_LENGTH: int = 16
 
 # App Fonts
-FONT = ('Helvetica', 14)
+FONT: Tuple[str, int] = ('Helvetica', 14)

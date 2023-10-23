@@ -1,15 +1,15 @@
 from . import commands
-from . import metadata
 from . import eventhandler
+from . import metadata
 from .state import State
 
 import os
 import tkinter as tk
 
 def read_passwords():
-    if State.is_reading_password == True:
-        return
-    
+    if State.is_reading_password:
+        return None
+
     State.is_reading_password = True
     read_window = tk.Toplevel()
     read_window.title("Password Manager: Read Passwords")
@@ -34,7 +34,6 @@ def read_passwords():
     # ReadPasswordButton
     submit_button = tk.Button(master=read_window, text="Read Password", font=metadata.FONT, command=lambda: eventhandler.handle_read_event(website_entry, email_entry, password_label))
     submit_button.grid(row=3, column=0, columnspan=3)
-    instance = True
 
 def main():
     window = tk.Tk()
