@@ -2,7 +2,7 @@ from . import commands
 from . import datahandler
 from . import metadata
 
-def handle_add_event(website_entry, email_entry, password_entry):
+def handle_submit_event(website_entry, email_entry, password_entry):
     website = website_entry.get()
     email = email_entry.get()
     password = password_entry.get()
