@@ -12,3 +12,6 @@ DATASEPERATOR: str =  " | "  # if we change this at any point in project, all da
 
 # App Meta Data
 PASSWORD_GENERATE_LENGTH: int = 16
+
+# App Fonts
+FONT = ('Helvetica', 14)
