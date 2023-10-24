@@ -18,3 +18,4 @@ PASSWORD_GENERATE_LENGTH: int = 16
 
 # App Fonts
 FONT: Tuple[str, int] = ('Helvetica', 14)
+HEADINGFONT: Tuple[str, int, str] = ('Helvetica', 19, "bold")

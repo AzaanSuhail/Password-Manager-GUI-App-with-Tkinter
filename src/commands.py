@@ -5,15 +5,17 @@ import pyperclip
 import string
 import secrets
 import tkinter as tk
-from tkinter import messagebox
+# from tkinter import messagebox
 
-def is_valid(website, email, password):
+def is_valid(website, email, password, success_label):
     condition1 = (website == metadata.WEBSITE_PLACEHOLDER) or (len(website) == 0)
     condition2 = (email == metadata.EMAIL_PLACEHOLDER) or   (len(email) == 0)
     condition3 = (password == metadata.PASSWORD_PLACEHOLDER) or (len(password) == 0)
     
     if condition1 or condition2 or condition3:
-        messagebox.showinfo(title="Oops", message="Please make sure you haven't left any fields empty.")
+        # messagebox.showinfo(title="Oops", message="Please make sure you haven't left any fields empty.")
+        success_label.config(foreground="red")
+        success_label.config(text="Oops! Please make sure you haven't left any fields empty.")
         return False
     return True
 
@@ -32,20 +34,20 @@ def create_placeholder(entry, placeholder):
     def placeholder_color():
         def changecolor(event):
             if entry.get() == placeholder:
-                entry.config(fg="gray")
+                entry.config(foreground="gray")
             else:
-                entry.config(fg="black")
+                entry.config(foreground="black")
                 
         entry.bind("<KeyRelease>", changecolor)
     
     selecttext_on_focus()
     placeholder_color()
     entry.insert(0, placeholder)
-    entry.config(fg="gray")
+    entry.config(foreground="grey")
 
 def restore_placeholder(entry, placeholder):
     entry.insert(0, placeholder)
-    entry.config(fg="gray")
+    entry.config(foreground="gray")
 
 def generate_password(length=12):
     alphabet = string.ascii_letters + string.digits + string.punctuation
@@ -54,7 +56,7 @@ def generate_password(length=12):
 
 def add_password_to_password_entry(password_entry, password):
     password_entry.delete(0, tk.END)
-    password_entry.config(fg="black")
+    password_entry.config(foreground="black")
     password_entry.insert(0, password)
 
 def copy_to_clipboard(password):
